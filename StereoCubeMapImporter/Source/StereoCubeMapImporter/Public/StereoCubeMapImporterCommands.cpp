@@ -1,8 +1,8 @@
 // Some copyright should be here...
 #if WITH_EDITOR
 
-#include "StereoCubeMapImporterPrivatePCH.h"
 #include "StereoCubeMapImporterCommands.h"
+#include "StereoCubeMapImporterPrivatePCH.h"
 
 #define LOCTEXT_NAMESPACE "FStereoCubeMapImporterModule"
 

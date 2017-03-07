@@ -1,9 +1,9 @@
 // Some copyright should be here...
 #if WITH_EDITOR
 
+#include "StereoCubeMapImporterStyle.h"
 #include "StereoCubeMapImporterPrivatePCH.h"
 
-#include "StereoCubeMapImporterStyle.h"
 #include "SlateGameResources.h"
 #include "IPluginManager.h"
 #include "SlateImageBrush.h"

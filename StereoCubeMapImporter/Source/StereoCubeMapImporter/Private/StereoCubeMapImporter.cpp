@@ -1,6 +1,7 @@
 // Some copyright should be here...
 #if WITH_EDITOR
 
+#include "StereoCubeMapImporter.h"
 #include "StereoCubeMapImporterPrivatePCH.h"
 
 #include "SlateBasics.h"
