@@ -6,6 +6,8 @@
 #include "StereoCubeMapImporterStyle.h"
 #include "SlateGameResources.h"
 #include "IPluginManager.h"
+#include "SlateImageBrush.h"
+#include "Styling/SlateBrush.h"
 
 TSharedPtr< FSlateStyleSet > FStereoCubeMapImporterStyle::StyleInstance = NULL;
 
@@ -31,7 +33,7 @@ FName FStereoCubeMapImporterStyle::GetStyleSetName()
 	return StyleSetName;
 }
 
-#define IMAGE_BRUSH( RelativePath, ... ) FSlateImageBrush( Style->RootToContentDir( RelativePath, TEXT(".png") ), __VA_ARGS__ )
+#define IMAGE_BRUSH(RelativePath, ... ) FSlateImageBrush( Style->RootToContentDir( RelativePath, TEXT(".png") ), __VA_ARGS__ )
 #define BOX_BRUSH( RelativePath, ... ) FSlateBoxBrush( Style->RootToContentDir( RelativePath, TEXT(".png") ), __VA_ARGS__ )
 #define BORDER_BRUSH( RelativePath, ... ) FSlateBorderBrush( Style->RootToContentDir( RelativePath, TEXT(".png") ), __VA_ARGS__ )
 #define TTF_FONT( RelativePath, ... ) FSlateFontInfo( Style->RootToContentDir( RelativePath, TEXT(".ttf") ), __VA_ARGS__ )
@@ -45,8 +47,11 @@ TSharedRef< FSlateStyleSet > FStereoCubeMapImporterStyle::Create()
 {
 	TSharedRef< FSlateStyleSet > Style = MakeShareable(new FSlateStyleSet("StereoCubeMapImporterStyle"));
 	Style->SetContentRoot(IPluginManager::Get().FindPlugin("StereoCubeMapImporter")->GetBaseDir() / TEXT("Resources"));
-
-	Style->Set("StereoCubeMapImporter.PluginAction", new IMAGE_BRUSH(TEXT("ButtonIcon_40x"), Icon40x40));
+	//Style->Set("StereoCubeMapImporter.PluginAction", new IMAGE_BRUSH(TEXT("ButtonIcon_40x"), Icon40x40));
+	const FString& IconFileName =  FString(TEXT("ButtonIcon_40x.png"));
+	//Style->Set("StereoCubeMapImporter.PluginAction", FSlateImageBrush::FSlateImageBrush(IconFileName,Icon40x40));
+	Style->Set("StereoCubeMapImporter.PluginAction",FColor(1,1,1,1));
+	//FSlateImageBrush(IconFileName, Icon40x40);
 
 	return Style;
 }

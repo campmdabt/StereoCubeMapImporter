@@ -13,7 +13,10 @@
 
 #include "AssetRegistryModule.h"
 #include "ContentBrowserModule.h"
-
+#include "IContentBrowserSingleton.h"
+#include "Engine/TextureCube.h"
+//#include "RenderCore.h"
+#include "RenderUtils.h"
 
 static const FName StereoCubeMapImporterTabName("Import Stereo Cube");
 
@@ -52,6 +55,8 @@ void FStereoCubeMapImporterModule::StartupModule()
 
 
 }
+
+
 
 void FStereoCubeMapImporterModule::ShutdownModule()
 {
@@ -117,6 +122,8 @@ void FStereoCubeMapImporterModule::PluginButtonClicked()
 
 						FContentBrowserModule& ContentBrowserModule = FModuleManager::LoadModuleChecked<FContentBrowserModule>("ContentBrowser");
 						FSaveAssetDialogConfig SaveAssetDialogConfig;
+						
+
 						SaveAssetDialogConfig.DialogTitleOverride = LOCTEXT("Save Stereo CubeMap", "Save Stereo Cubemap's As");
 						SaveAssetDialogConfig.DefaultPath = TEXT("/Game");
 						SaveAssetDialogConfig.DefaultAssetName = TextureName;
