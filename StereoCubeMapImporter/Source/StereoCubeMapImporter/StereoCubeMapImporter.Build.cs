@@ -4,7 +4,7 @@ using UnrealBuildTool;
 
 public class StereoCubeMapImporter : ModuleRules
 {
-	public StereoCubeMapImporter(TargetInfo Target)
+	public StereoCubeMapImporter(ReadOnlyTargetRules Target) : base(Target)
 	{
 		
 		PublicIncludePaths.AddRange(
